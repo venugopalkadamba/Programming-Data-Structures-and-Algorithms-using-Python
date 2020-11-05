@@ -1,4 +1,5 @@
 def missingAndRepeating(l, n):
+    repeating_num, missing_num = 0, 0
     for i in range(n):
         temp = l[abs(l[i])-1]
         if temp < 0:
