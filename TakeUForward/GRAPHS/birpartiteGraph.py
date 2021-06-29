@@ -23,6 +23,19 @@ def bfsCheck(adjacencyList, node, colors):
     return True
 
 
+def dfsCheck(adjacencyList, node, colors):
+    if colors[node]==-1:
+        colors[node] = 1
+    for adjNode in adjacencyList[node]:
+        if colors[adjNode] == -1:
+            colors[adjNode] = 1 - colors[node]
+            if(dfsCheck(adjacencyList, adjNode, colors) == False):
+                return False
+        elif colors[node] == colors[adjNode]:
+            return False
+    return True
+
+
 def checkBipartite(adjacencyList, n):
     # taking colors as 0 ans 1
     colors = [-1]*(n)
